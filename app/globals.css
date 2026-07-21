@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500&family=Sora:wght@600;700&family=Manrope:wght@400;500&family=JetBrains+Mono:wght@400;500;700&family=Zilla+Slab:wght@500;700&family=Work+Sans:wght@400;500&family=Caveat:wght@600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root { --font-mono: 'JetBrains Mono', monospace; --font-signature: 'Caveat', cursive; }
+
+/* Craft/handmade utilities — paper texture, stitched borders, a hand-drawn
+   underline, and a stamped badge, used instead of the sharp/technical
+   blueprint language. */
+.paper-bg {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(0,0,0,0.025) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(0,0,0,0.02) 0%, transparent 40%);
+}
+.stitched {
+  border: 2px dashed var(--line);
+}
+.underline-draw {
+  position: relative;
+  display: inline-block;
+}
+.underline-draw svg {
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  width: 100%; height: 10px;
+}
+.stamp {
+  display: inline-block;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 4px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  transform: rotate(-2deg);
+  border-radius: 3px;
+}
+.signature {
+  font-family: var(--font-signature);
+  font-size: 28px;
+  color: var(--accent);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; }
+
+button, .btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+/* Corner style is set per-client: sharp = 0, soft = rounded */
+.btn, .card, input, textarea {
+  border-radius: var(--radius);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 14px 28px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  transition: opacity 0.15s ease;
+}
+.btn-primary:hover { opacity: 0.88; }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 13px 27px;
+  font-size: 15px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+section { padding: 96px 24px; }
+@media (max-width: 640px) {
+  section { padding: 56px 20px; }
+  nav .wrap { padding: 14px 16px !important; }
+  nav .signature { font-size: 24px !important; }
+  nav .btn-primary { padding: 8px 14px !important; font-size: 12px !important; }
+}
+
+.section-alt { background: var(--bg-alt); }
+
+.wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.card {
+  border: 1px solid var(--line);
+  padding: 32px;
+  background: var(--bg);
+}
+
+.muted { color: var(--ink-muted); }
+
+/* Accessibility: visible focus state, respected everywhere */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
