@@ -12,9 +12,13 @@ interface WorkSampleProps {
   /** Overrides the tagline colour where the brand sets it apart from the
    *  wordmark — e.g. Cozy Thrift's white name over a red strapline. */
   taglineFg?: string
+  /** A full logo lockup to show instead of the mark/wordmark/tagline stack.
+   *  Use when the brand's artwork already contains its own name and strapline,
+   *  so rendering them separately would duplicate. */
+  image?: string
 }
 
-export default function WorkSample({ name, url, tagline, bg, fg, comingSoon, brand, taglineFg }: WorkSampleProps) {
+export default function WorkSample({ name, url, tagline, bg, fg, comingSoon, brand, taglineFg, image }: WorkSampleProps) {
   const content = (
     <div className="card" style={{ padding: 0, overflow: 'hidden', cursor: comingSoon ? 'default' : 'pointer', opacity: comingSoon ? 0.55 : 1 }}>
       {/* browser chrome */}
@@ -33,6 +37,18 @@ export default function WorkSample({ name, url, tagline, bg, fg, comingSoon, bra
       }}>
         {comingSoon ? (
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--ink-muted)' }}>MORE WORK COMING SOON</span>
+        ) : image ? (
+          // The artwork already carries the name and strapline, so it replaces
+          // the whole stack rather than sitting above it. `contain` keeps the
+          // logo whole — `cover` clipped the top of the skull — which only
+          // looks seamless because the card's bg is set to the artwork's own
+          // background colour, so the letterboxing is invisible.
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={image}
+            alt={`${name} logo`}
+            style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+          />
         ) : (
           <>
             {brand && <BrandMark brand={brand} />}

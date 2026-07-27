@@ -43,12 +43,10 @@ export default function PortfolioPage() {
           />
           <WorkSample
             name="The Cozy Thrift"
-            brand="cozythrift"
             url="https://thecozythrift.com"
-            tagline="Cool & unique finds"
-            bg="#0A0A0A"
-            fg="#FFFFFF"
-            taglineFg="#E02D2D"
+            image="/work-cozythrift.jpg"
+            /* sampled from the logo artwork so the letterboxing is invisible */
+            bg="#040409"
           />
           <WorkSample
             name="BracketRunner"
