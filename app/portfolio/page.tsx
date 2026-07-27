@@ -4,11 +4,11 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
 export const metadata = {
-  title: `Our Work — ${activeConfig.business.name}`,
+  title: activeConfig.sectionCopy?.portfolioTitle || `Our Work — ${activeConfig.business.name}`,
 }
 
 export default function PortfolioPage() {
-  const { hero } = activeConfig
+  const { hero, sectionCopy } = activeConfig
   return (
     <>
       <Nav />
@@ -16,9 +16,11 @@ export default function PortfolioPage() {
       <section className="paper-bg" style={{ paddingTop: '64px', paddingBottom: '24px' }}>
         <div className="wrap">
           <a href="/" style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: 'var(--accent)', textDecoration: 'none' }}>&larr; Back to home</a>
-          <h1 style={{ fontSize: 'clamp(32px, 5vw, 48px)', marginTop: '18px', marginBottom: '16px' }}>What we&rsquo;ve built</h1>
+          <h1 style={{ fontSize: 'clamp(32px, 5vw, 48px)', marginTop: '18px', marginBottom: '16px' }}>
+            {sectionCopy?.portfolioHeading || 'What we’ve built'}
+          </h1>
           <p className="muted" style={{ fontSize: '17px', maxWidth: '560px' }}>
-            Real, live products — not mockups. Click through to see them running.
+            {sectionCopy?.portfolioIntro || 'Real, live products — not mockups. Click through to see them running.'}
           </p>
         </div>
       </section>

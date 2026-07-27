@@ -24,13 +24,23 @@ export const sitesByEdConfig: ClientConfig = {
     serviceArea: 'Small businesses & youth sports organizations — anywhere',
   },
   sectionOrder: ['hero', 'services', 'comparison', 'about', 'contact'],
+  // First person singular throughout — the whole pitch is that one person
+  // builds the site, so "we" would undercut it.
+  sectionCopy: {
+    servicesHeading: 'What I build',
+    servicesIntro: 'Three ways to work together — no bloated packages, no upsell maze. One time fee for the site, and optional hosting.',
+    contactHeading: 'Get in touch',
+    portfolioTitle: 'My Work — Sites by Ed',
+    portfolioHeading: 'What I’ve built',
+    portfolioIntro: 'Real, live products — not mockups. Click through to see them running.',
+  },
   hero: {
     eyebrow: 'HANDBUILT WEBSITES',
     headline: 'Built by hand.\nNot pulled from a kit.',
     subhead: 'No templates, no drag-and-drop builder, no outsourced dev team on the other side of the world. Just a real site, built by one person who cares whether it\u2019s right.',
     ctaLabel: 'Get a Free Quote',
     ctaHref: '#contact',
-    secondaryCtaLabel: 'See What We\u2019ve Built',
+    secondaryCtaLabel: 'See What I\u2019ve Built',
     secondaryCtaHref: '/portfolio',
   },
   services: [

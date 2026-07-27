@@ -128,11 +128,31 @@ export interface FooterContent {
   copyrightName: string
 }
 
+/**
+ * Section headings and intros that used to be hardcoded inside components.
+ * They live here because they carry two things that vary per client: the
+ * business's own wording, and its VOICE — a solo operator says "What I build",
+ * a company with a crew says "What we build". Baking either into a shared
+ * component forces a fork the first time a client doesn't match.
+ *
+ * Every field is optional; components fall back to neutral defaults.
+ */
+export interface SectionCopy {
+  servicesHeading?: string       // default: "What we build"
+  servicesIntro?: string         // no default — omitted entirely if unset
+  contactHeading?: string        // default: "Get in touch"
+  galleryHeading?: string        // default: "Our work"
+  portfolioTitle?: string        // browser tab title; default: "Our Work — <name>"
+  portfolioHeading?: string      // default: "What we've built"
+  portfolioIntro?: string        // default: "Real, live products — not mockups…"
+}
+
 export interface ClientConfig {
   slug: string                   // used in the repo/domain, e.g. "smith-tree-care"
   theme: ThemeConfig
   business: BusinessInfo
   sectionOrder: SectionKey[]     // controls which sections render, and in what order
+  sectionCopy?: SectionCopy      // headings/intros; also where first-person voice is set
   hero: HeroContent
   services: ServiceItem[]
   comparison?: ComparisonContent

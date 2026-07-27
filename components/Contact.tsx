@@ -59,7 +59,7 @@ export default function Contact() {
     <section id="contact" className="section-alt">
       <div className="wrap" style={{ maxWidth: '640px' }}>
         <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '16px' }}>
-          <HandUnderline>Get in touch</HandUnderline>
+          <HandUnderline>{activeConfig.sectionCopy?.contactHeading || 'Get in touch'}</HandUnderline>
         </h2>
         <p className="muted" style={{ marginBottom: '32px' }}>
           {isRealPhone(business.phone) ? (
