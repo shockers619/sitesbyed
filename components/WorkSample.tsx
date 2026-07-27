@@ -47,7 +47,17 @@ export default function WorkSample({ name, url, tagline, bg, fg, comingSoon, bra
           <img
             src={image}
             alt={`${name} logo`}
-            style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              display: 'block',
+              // Keeps wide wordmarks off the card edges. Harmless for artwork
+              // with a baked-in background, since the card behind it is set to
+              // that same colour.
+              padding: '20px',
+              boxSizing: 'border-box',
+            }}
           />
         ) : (
           <>

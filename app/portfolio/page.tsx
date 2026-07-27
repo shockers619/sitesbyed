@@ -27,11 +27,9 @@ export default function PortfolioPage() {
         <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '28px' }}>
           <WorkSample
             name="FloorBalance"
-            brand="floorbalance"
             url="https://floorbalance.com"
-            tagline="National youth basketball directory"
+            image="/work-floorbalance.png"
             bg="#1A1815"
-            fg="#F4A25C"
           />
           <WorkSample
             name="Pancake Dig"
