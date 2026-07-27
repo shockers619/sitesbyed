@@ -16,7 +16,7 @@ export default function PortfolioPage() {
       <section className="paper-bg" style={{ paddingTop: '64px', paddingBottom: '24px' }}>
         <div className="wrap">
           <a href="/" style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: 'var(--accent)', textDecoration: 'none' }}>&larr; Back to home</a>
-          <h1 style={{ fontSize: 'clamp(32px, 5vw, 48px)', marginTop: '18px', marginBottom: '16px' }}>What we\u2019ve built</h1>
+          <h1 style={{ fontSize: 'clamp(32px, 5vw, 48px)', marginTop: '18px', marginBottom: '16px' }}>What we&rsquo;ve built</h1>
           <p className="muted" style={{ fontSize: '17px', maxWidth: '560px' }}>
             Real, live products — not mockups. Click through to see them running.
           </p>
@@ -46,7 +46,13 @@ export default function PortfolioPage() {
             bg="#1F1414"
             fg="#D4A24C"
           />
-          <WorkSample name="" comingSoon />
+          <WorkSample
+            name="BracketRunner"
+            url="https://bracketrunner.com"
+            tagline="Tournament scheduling & live scores"
+            bg="#0A0B0D"
+            fg="#FF5500"
+          />
           <WorkSample name="" comingSoon />
           <WorkSample name="" comingSoon />
         </div>

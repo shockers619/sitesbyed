@@ -17,7 +17,7 @@ export default function Nav() {
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px' }}>
                 {business.logoPrefix}
               </span>
-              <span className="signature" style={{ fontSize: '30px', lineHeight: 1 }}>
+              <span className="signature">
                 {business.logoSignature}
               </span>
             </span>

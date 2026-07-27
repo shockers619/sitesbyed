@@ -37,6 +37,12 @@ export interface ThemeConfig {
 
   /** 'sharp' = 0 border-radius, editorial/premium. 'soft' = rounded corners, friendly/approachable. */
   cornerStyle: 'sharp' | 'soft'
+
+  /** 'craft' layers the handmade treatments — paper grain, hand-drawn heading
+   *  underlines, pinned-card tilt, margin notes in the signature hand — on top
+   *  of the base theme. Defaults to 'clean' so a client whose brand isn't
+   *  handmade (a law firm, an HVAC company) doesn't inherit any of it. */
+  texture?: 'craft' | 'clean'
 }
 
 export const FONT_PAIRINGS = {
@@ -50,7 +56,9 @@ export const FONT_PAIRINGS = {
 export interface BusinessInfo {
   name: string
   tagline: string
-  phone: string
+  /** Omit entirely for email-only operators — the contact section and footer
+   *  fall back to `email` rather than rendering an empty or fake tel: link. */
+  phone?: string
   email: string
   address?: string
   serviceArea: string      // e.g. "Chester County & surrounding areas"
@@ -77,6 +85,9 @@ export interface HeroContent {
 export interface ServiceItem {
   title: string
   description: string
+  /** Optional margin note, rendered in the signature hand beside the card —
+   *  the kind of thing you'd scribble next to a quote. Craft texture only. */
+  note?: string
 }
 
 export interface AboutContent {

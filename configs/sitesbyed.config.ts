@@ -12,13 +12,14 @@ export const sitesByEdConfig: ClientConfig = {
     line: 'rgba(42,38,32,0.18)',
     fontPairing: 'craft',
     cornerStyle: 'soft',
+    texture: 'craft',
   },
   business: {
     name: 'Sites by Ed',
     logoPrefix: 'Sites by',
     logoSignature: 'Ed',
     tagline: 'A website built by hand, not pulled from a template.',
-    phone: '(555) 555-5555',
+    // No public phone — email-only by choice. See BusinessInfo.phone.
     email: 'ed@sitesbyed.com',
     serviceArea: 'Small businesses & youth sports organizations — anywhere',
   },
@@ -36,10 +37,12 @@ export const sitesByEdConfig: ClientConfig = {
     {
       title: 'The Starter Build — $1,500',
       description: 'A home page plus up to 3 subpages, built to load fast and work perfectly on phones. Contact form wired straight to your inbox, basic SEO so people can actually find you. Two rounds of revisions included.',
+      note: 'most small businesses start here',
     },
     {
       title: 'The Full Build — $3,000',
       description: 'Everything in the Starter Build, plus Calendly scheduling or Stripe payment links built directly into your site — so customers can book or pay without a phone call.',
+      note: 'best if you take bookings and/or online payments',
     },
     {
       title: 'Keeping It Running —\n$49–$99/mo',
@@ -61,9 +64,9 @@ export const sitesByEdConfig: ClientConfig = {
   },
   about: {
     headline: 'One person, start to finish',
-    body: 'Whether you need a site built from scratch or an outdated one completely overhauled, you work directly with me. No account managers, no bloat, no agency overhead — just clean, user-friendly code built precisely to your specifications, at a price that actually makes sense for a small business or organization.\n\nThe same care behind this site went into FloorBalance.com, PancakeDig.com, and TheCozyThrift.com — live, real-world products handling real user traffic. That\u2019s the actual bar every client site is held to.',
+    body: 'Whether you need a site built from scratch or an outdated one completely overhauled, you work directly with me. No account managers, no bloat, no agency overhead — just clean, user-friendly code built precisely to your specifications, at a price that actually makes sense for a small business or organization.\n\nThe same care behind this site went into FloorBalance.com, PancakeDig.com, TheCozyThrift.com, and BracketRunner.com — live, real-world products handling real user traffic. That\u2019s the actual bar every client site is held to.',
     stats: [
-      { value: '3', label: 'Live products built & shipped' },
+      { value: '4', label: 'Live products built & shipped' },
       { value: '<1s', label: 'Typical page load time' },
     ],
   },

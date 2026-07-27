@@ -1,11 +1,14 @@
 import { activeConfig } from '@/configs/active'
+import HandUnderline from '@/components/HandUnderline'
 
 export default function About() {
   const { about } = activeConfig
   return (
     <section id="about" style={{ paddingTop: '40px' }}>
       <div className="wrap" style={{ maxWidth: '720px' }}>
-        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '24px' }}>{about.headline}</h2>
+        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '24px' }}>
+          <HandUnderline>{about.headline}</HandUnderline>
+        </h2>
         {about.body.split('\n\n').map((p, i) => (
           <p key={i} className="muted" style={{ fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>{p}</p>
         ))}

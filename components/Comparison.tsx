@@ -1,4 +1,5 @@
 import { activeConfig } from '@/configs/active'
+import HandUnderline from '@/components/HandUnderline'
 
 export default function Comparison() {
   const { comparison, business } = activeConfig
@@ -9,7 +10,9 @@ export default function Comparison() {
   return (
     <section>
       <div className="wrap">
-        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '44px' }}>{comparison.headline}</h2>
+        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '44px' }}>
+          <HandUnderline>{comparison.headline}</HandUnderline>
+        </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
           <div className="card stitched">
             <p className="muted" style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '17px', marginBottom: '20px' }}>{diyLabel}</p>

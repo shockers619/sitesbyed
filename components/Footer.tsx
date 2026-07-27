@@ -1,4 +1,5 @@
 import { activeConfig } from '@/configs/active'
+import { isRealPhone } from '@/lib/guards'
 
 export default function Footer() {
   const { footer, business } = activeConfig
@@ -8,7 +9,9 @@ export default function Footer() {
         <p className="muted" style={{ fontSize: '13px' }}>
           © {new Date().getFullYear()} {footer.copyrightName}
         </p>
-        <p className="muted" style={{ fontSize: '13px' }}>{business.phone} · {business.email}</p>
+        <p className="muted" style={{ fontSize: '13px' }}>
+          {isRealPhone(business.phone) ? `${business.phone} · ${business.email}` : business.email}
+        </p>
       </div>
     </footer>
   )
