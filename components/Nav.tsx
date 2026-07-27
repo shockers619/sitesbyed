@@ -11,7 +11,7 @@ export default function Nav() {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '18px 24px',
       }}>
-        <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <a href="/" className="tap-target" style={{ textDecoration: 'none', color: 'inherit' }}>
           {business.logoPrefix && business.logoSignature ? (
             <span style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px' }}>
@@ -28,10 +28,10 @@ export default function Nav() {
           )}
         </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          <a href="/portfolio" style={{ fontSize: '14px', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>
+          <a href="/portfolio" className="tap-target" style={{ fontSize: '14px', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>
             Portfolio
           </a>
-          <a href={`/${hero.ctaHref}`} className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '13px', textDecoration: 'none' }}>
+          <a href={`/${hero.ctaHref}`} className="btn btn-primary tap-target" style={{ padding: '10px 20px', fontSize: '13px', textDecoration: 'none' }}>
             {hero.ctaLabel}
           </a>
         </div>

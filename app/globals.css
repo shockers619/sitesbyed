@@ -186,6 +186,16 @@ section { padding: 96px 24px; }
 
 .muted { color: var(--ink-muted); }
 
+/* Touch targets. WCAG 2.5.8 sets a 24x24 CSS-px floor and Apple's HIG
+   recommends 44. Measured on a 375px viewport, the nav links were 18-21px
+   tall — under the floor, and awkward to hit with a thumb. Padding grows the
+   hit area without moving the text. */
+.tap-target {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
 /* Accessibility: visible focus state, respected everywhere */
 :focus-visible {
   outline: 2px solid var(--accent);

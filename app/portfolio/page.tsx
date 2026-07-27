@@ -15,11 +15,13 @@ export default function PortfolioPage() {
 
       <section className="paper-bg" style={{ paddingTop: '64px', paddingBottom: '24px' }}>
         <div className="wrap">
-          <a href="/" style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: 'var(--accent)', textDecoration: 'none' }}>&larr; Back to home</a>
+          <a href="/" className="tap-target" style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: 'var(--accent)', textDecoration: 'none' }}>&larr; Back to home</a>
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 48px)', marginTop: '18px', marginBottom: '16px' }}>
             {sectionCopy?.portfolioHeading || 'What we’ve built'}
           </h1>
-          <p className="muted" style={{ fontSize: '17px', maxWidth: '560px' }}>
+          {/* pre-line so a config can break the intro onto its own lines with
+              \n rather than letting the sentence wrap mid-phrase */}
+          <p className="muted" style={{ fontSize: '17px', maxWidth: '640px', whiteSpace: 'pre-line' }}>
             {sectionCopy?.portfolioIntro || 'Real, live products — not mockups. Click through to see them running.'}
           </p>
         </div>
