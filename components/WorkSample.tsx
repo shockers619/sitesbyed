@@ -1,3 +1,5 @@
+import { BrandMark, BrandWordmark, BrandKey } from '@/components/BrandMark'
+
 interface WorkSampleProps {
   name: string
   url?: string
@@ -5,9 +7,14 @@ interface WorkSampleProps {
   bg?: string
   fg?: string
   comingSoon?: boolean
+  /** Renders the brand's own mark and wordmark instead of plain display text. */
+  brand?: BrandKey
+  /** Overrides the tagline colour where the brand sets it apart from the
+   *  wordmark — e.g. Cozy Thrift's white name over a red strapline. */
+  taglineFg?: string
 }
 
-export default function WorkSample({ name, url, tagline, bg, fg, comingSoon }: WorkSampleProps) {
+export default function WorkSample({ name, url, tagline, bg, fg, comingSoon, brand, taglineFg }: WorkSampleProps) {
   const content = (
     <div className="card" style={{ padding: 0, overflow: 'hidden', cursor: comingSoon ? 'default' : 'pointer', opacity: comingSoon ? 0.55 : 1 }}>
       {/* browser chrome */}
@@ -28,8 +35,23 @@ export default function WorkSample({ name, url, tagline, bg, fg, comingSoon }: W
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--ink-muted)' }}>MORE WORK COMING SOON</span>
         ) : (
           <>
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '22px', color: fg || 'var(--ink)' }}>{name}</span>
-            {tagline && <span style={{ fontSize: '13px', color: fg || 'var(--ink)', opacity: 0.75 }}>{tagline}</span>}
+            {brand && <BrandMark brand={brand} />}
+            {brand ? (
+              <BrandWordmark brand={brand} name={name} fg={fg || 'var(--ink)'} />
+            ) : (
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '22px', color: fg || 'var(--ink)' }}>{name}</span>
+            )}
+            {tagline && (
+              <span style={{
+                fontSize: '13px',
+                color: taglineFg || fg || 'var(--ink)',
+                opacity: taglineFg ? 1 : 0.75,
+                textAlign: 'center',
+                padding: '0 12px',
+              }}>
+                {tagline}
+              </span>
+            )}
           </>
         )}
       </div>

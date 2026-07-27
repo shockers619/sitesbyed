@@ -41,7 +41,7 @@ export const sitesByEdConfig: ClientConfig = {
     },
     {
       title: 'The Full Build — $3,000',
-      description: 'Everything in the Starter Build, plus Calendly scheduling or Stripe payment links built directly into your site — so customers can book or pay without a phone call.',
+      description: 'A bigger site — up to 8 subpages — with real booking or payment built into it. Not a Calendly widget embedded on a page or a Stripe link bolted on, but scheduling and checkout designed as part of the site, so a customer goes from landing on it to booked or paid without ever leaving.',
       note: 'best if you take bookings and/or online payments',
     },
     {

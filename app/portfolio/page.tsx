@@ -27,6 +27,7 @@ export default function PortfolioPage() {
         <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '28px' }}>
           <WorkSample
             name="FloorBalance"
+            brand="floorbalance"
             url="https://floorbalance.com"
             tagline="National youth basketball directory"
             bg="#1A1815"
@@ -34,6 +35,7 @@ export default function PortfolioPage() {
           />
           <WorkSample
             name="Pancake Dig"
+            brand="pancakedig"
             url="https://pancakedig.com"
             tagline="National grassroots volleyball directory"
             bg="#10263B"
@@ -41,13 +43,16 @@ export default function PortfolioPage() {
           />
           <WorkSample
             name="The Cozy Thrift"
+            brand="cozythrift"
             url="https://thecozythrift.com"
-            tagline="Vintage & secondhand resale shop"
-            bg="#1F1414"
-            fg="#D4A24C"
+            tagline="Cool & unique finds"
+            bg="#0A0A0A"
+            fg="#FFFFFF"
+            taglineFg="#E02D2D"
           />
           <WorkSample
             name="BracketRunner"
+            brand="bracketrunner"
             url="https://bracketrunner.com"
             tagline="Tournament scheduling & live scores"
             bg="#0A0B0D"
