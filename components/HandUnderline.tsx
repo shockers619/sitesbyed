@@ -21,10 +21,10 @@ export default function HandUnderline({ children }: { children: React.ReactNode 
           d="M2,7 C28,3.2 54,8.4 81,5.2 C109,2.1 139,8.2 167,4.4 C179,2.9 190,6.1 198,4.8"
           fill="none"
           stroke="var(--accent)"
-          strokeWidth="2.2"
+          strokeWidth="3.4"
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
-          opacity="0.55"
+          opacity="0.8"
         />
       </svg>
     </span>
