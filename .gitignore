@@ -3,3 +3,9 @@ node_modules/
 .DS_Store
 .vercel
 *.tsbuildinfo
+
+# Secrets. Nothing matching these should ever reach the repo — the Stripe
+# secret key lives in Vercel's environment variables, not in a file.
+.env
+.env.*
+!.env.example
