@@ -52,11 +52,10 @@ export default function PortfolioPage() {
           />
           <WorkSample
             name="BracketRunner"
-            brand="bracketrunner"
             url="https://bracketrunner.com"
-            tagline="Tournament scheduling & live scores"
-            bg="#0A0B0D"
-            fg="#FF5500"
+            image="/work-bracketrunner.jpg"
+            /* the artwork's own backdrop, so the letterboxing is invisible */
+            bg="#000000"
           />
           <WorkSample name="" comingSoon />
           <WorkSample name="" comingSoon />
