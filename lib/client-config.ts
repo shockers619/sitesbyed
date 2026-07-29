@@ -94,6 +94,12 @@ export interface AboutContent {
   headline: string
   body: string              // supports \n\n for paragraph breaks
   image?: string
+  /** Short caption under the photo, rendered in the signature hand — e.g.
+   *  "actually me". Omit for clients where a handwritten aside would jar. */
+  imageCaption?: string
+  /** A signed name closing out the section, in the signature hand. Suits a
+   *  solo operator; leave unset for a company with a team. */
+  signoff?: string
   stats?: { value: string; label: string }[]   // e.g. { value: "20+", label: "Years in business" }
 }
 

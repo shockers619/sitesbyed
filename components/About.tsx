@@ -15,6 +15,10 @@ export default function About() {
             {about.body.split('\n\n').map((p, i) => (
               <p key={i} className="muted" style={{ fontSize: '17px', lineHeight: 1.7, marginBottom: '16px' }}>{p}</p>
             ))}
+            {about.signoff && (
+              <p className="about-signoff" aria-hidden="true">{about.signoff}</p>
+            )}
+
             {about.stats && (
               <div style={{ display: 'flex', gap: '40px', marginTop: '32px', flexWrap: 'wrap' }}>
                 {about.stats.map((s, i) => (
@@ -28,12 +32,17 @@ export default function About() {
           </div>
 
           {about.image && (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              className="about-photo"
-              src={about.image}
-              alt={`${activeConfig.business.logoSignature || activeConfig.business.name}, who builds the sites`}
-            />
+            <figure style={{ margin: 0 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="about-photo"
+                src={about.image}
+                alt={`${activeConfig.business.logoSignature || activeConfig.business.name}, who builds the sites`}
+              />
+              {about.imageCaption && (
+                <figcaption className="about-caption">{about.imageCaption}</figcaption>
+              )}
+            </figure>
           )}
         </div>
       </div>

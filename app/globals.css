@@ -211,6 +211,35 @@ section { padding: 96px 24px; }
 /* Pinned slightly off-square, like a print tacked to the page. */
 .texture-craft .about-photo { transform: rotate(1.1deg); }
 
+/* Handwritten aside under the photo, following the print's own tilt so the
+   two read as one pinned object rather than a caption bolted underneath. */
+.about-caption {
+  font-family: var(--font-signature);
+  font-size: 21px;
+  line-height: 1;
+  color: var(--accent);
+  text-align: center;
+  margin-top: 18px;
+}
+.texture-craft .about-caption { transform: rotate(1.1deg); }
+
+/* Signed off in the same hand as the logo, closing the section like a note.
+   aria-hidden in the markup — it's a visual flourish, and a screen reader
+   announcing a stray "Ed" between prose and statistics is just noise. */
+.about-signoff {
+  font-family: var(--font-signature);
+  font-size: 54px;
+  line-height: 1;
+  color: var(--accent);
+  text-align: right;
+  margin-top: 28px;
+  margin-right: 8px;
+  transform: rotate(-2deg);
+}
+@media (max-width: 760px) {
+  .about-signoff { font-size: 44px; text-align: left; margin-right: 0; }
+}
+
 /* Touch targets. WCAG 2.5.8 sets a 24x24 CSS-px floor and Apple's HIG
    recommends 44. Measured on a 375px viewport, the nav links were 18-21px
    tall — under the floor, and awkward to hit with a thumb. Padding grows the
