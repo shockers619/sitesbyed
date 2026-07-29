@@ -234,6 +234,11 @@ export default function PayForm() {
 
   return (
     <form onSubmit={startPayment} style={{ display: 'grid', gap: '18px' }}>
+      <p className="muted" style={{ fontSize: '17px', lineHeight: 1.6 }}>
+        Enter the amount we agreed on. Card details are handled by Stripe and
+        never touch this site.
+      </p>
+
       <div>
         <label style={labelStyle} htmlFor="amount">Amount</label>
         <input
@@ -288,6 +293,11 @@ export default function PayForm() {
       </div>
 
       {error && <p style={{ color: '#8B2E2E', fontSize: '15px' }}>{error}</p>}
+
+      <p className="muted" style={{ fontSize: '14px', marginTop: '10px', lineHeight: 1.6 }}>
+        Not sure what to enter? Email {activeConfig.business.email}{' '}
+        and I&rsquo;ll confirm the amount.
+      </p>
     </form>
   )
 }

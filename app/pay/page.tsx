@@ -15,28 +15,22 @@ export const metadata = {
 }
 
 export default function PayPage() {
-  const { business } = activeConfig
   return (
     <>
       <Nav />
 
       <section className="paper-bg" style={{ paddingTop: '56px', paddingBottom: '16px' }}>
         <div className="wrap" style={{ maxWidth: '560px' }}>
-          <h1 style={{ fontSize: 'clamp(30px, 5vw, 42px)', marginBottom: '14px' }}>Make a payment</h1>
-          <p className="muted" style={{ fontSize: '17px', lineHeight: 1.6 }}>
-            Enter the amount we agreed on. Card details are handled by Stripe and
-            never touch this site.
-          </p>
+          <h1 style={{ fontSize: 'clamp(30px, 5vw, 42px)' }}>Make a payment</h1>
         </div>
       </section>
 
-      <section style={{ paddingTop: '8px' }}>
+      {/* The intro and the "not sure what to enter?" footnote both talk about
+          choosing an amount, so they belong to step one only. PayForm owns them
+          because it owns the step state. */}
+      <section style={{ paddingTop: '20px' }}>
         <div className="wrap" style={{ maxWidth: '560px' }}>
           <PayForm />
-          <p className="muted" style={{ fontSize: '14px', marginTop: '28px', lineHeight: 1.6 }}>
-            Not sure what to enter? Email {business.email}{' '}
-            and I&rsquo;ll confirm the amount.
-          </p>
         </div>
       </section>
 
