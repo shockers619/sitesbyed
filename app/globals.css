@@ -190,6 +190,27 @@ section { padding: 96px 24px; }
 
 .muted { color: var(--ink-muted); }
 
+/* About section: copy beside a portrait, collapsing to one column on narrow
+   screens. Text gets the wider track — the photo is supporting, not the point. */
+.about-grid {
+  display: grid;
+  gap: 40px;
+  align-items: start;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+}
+@media (max-width: 760px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+.about-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+/* Pinned slightly off-square, like a print tacked to the page. */
+.texture-craft .about-photo { transform: rotate(1.1deg); }
+
 /* Touch targets. WCAG 2.5.8 sets a 24x24 CSS-px floor and Apple's HIG
    recommends 44. Measured on a 375px viewport, the nav links were 18-21px
    tall — under the floor, and awkward to hit with a thumb. Padding grows the

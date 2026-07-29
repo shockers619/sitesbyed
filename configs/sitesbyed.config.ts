@@ -75,6 +75,7 @@ export const sitesByEdConfig: ClientConfig = {
   about: {
     headline: 'One person, start to finish',
     body: 'Whether you need a site built from scratch or an outdated one completely overhauled, you work directly with me. No account managers, no bloat, no agency overhead — just clean, user-friendly code built precisely to your specifications, at a price that actually makes sense for a small business or organization.\n\nThe same care behind this site went into FloorBalance.com, PancakeDig.com, TheCozyThrift.com, and BracketRunner.com — live, real-world products handling real user traffic. That\u2019s the actual bar every client site is held to.',
+    image: '/about-ed.jpg',
     stats: [
       { value: '4', label: 'Live products built & shipped' },
       { value: '<1s', label: 'Typical page load time' },
