@@ -4,18 +4,21 @@
 // Shared by the /pay form and the API route so the two can't drift. The form
 // uses these for immediate feedback; the API route enforces them for real.
 //
-// The floor exists for fraud reasons, not billing ones. A public form that
-// accepts any amount is a standing invitation to card testing — running small
-// charges against stolen numbers to see which ones are live. A minimum makes
-// the form useless for that. The ceiling caps the damage from a typo.
+// NOTE: these are now Stripe's own hard limits, not business rules. Ed removed
+// the $50 floor deliberately so small amounts can be taken. That floor was a
+// fraud control — a public form accepting any amount invites card testing,
+// where stolen numbers are run at small values to find the live ones. Stripe
+// Radar is now the only thing standing in the way of that. Worth reinstating a
+// business minimum once testing is done.
 // ============================================================================
 
-/** $50.00 — below this, the form is more useful to a fraudster than a client. */
-export const MIN_CENTS = 5_000
+/** $0.50 — Stripe rejects anything smaller, so catching it here returns a
+ *  readable message instead of a raw API error. */
+export const MIN_CENTS = 50
 
-/** $10,000.00 — comfortably above a Full Build, and stops `50000` typed for
- *  `$500` from becoming a $50,000 charge. */
-export const MAX_CENTS = 1_000_000
+/** $999,999.99 — Stripe's per-transaction ceiling. Not a business limit;
+ *  it just stops obviously invalid values reaching the API. */
+export const MAX_CENTS = 99_999_999
 
 export const MIN_DOLLARS = MIN_CENTS / 100
 export const MAX_DOLLARS = MAX_CENTS / 100
@@ -62,7 +65,7 @@ export function amountErrorMessage(err: AmountError): string {
   switch (err) {
     case 'missing': return 'Enter an amount.'
     case 'invalid': return 'That doesn’t look like a valid amount.'
-    case 'too_low': return `Minimum payment is ${formatCents(MIN_CENTS)}.`
-    case 'too_high': return `For amounts over ${formatCents(MAX_CENTS)}, please get in touch directly.`
+    case 'too_low': return `The smallest payment card networks accept is ${formatCents(MIN_CENTS)}.`
+    case 'too_high': return 'That amount is too large to process. Please get in touch directly.'
   }
 }

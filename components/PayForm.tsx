@@ -8,8 +8,6 @@ import {
   parseDollarsToCents,
   validateCents,
   amountErrorMessage,
-  MIN_CENTS,
-  MAX_CENTS,
 } from '@/lib/payment'
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -249,11 +247,13 @@ export default function PayForm() {
           onChange={(e) => setAmount(e.target.value)}
           style={fieldStyle}
         />
-        <p className="muted" style={{ fontSize: '13px', marginTop: '6px' }}>
-          {preview
-            ? `That's ${preview}.`
-            : `Between ${formatCents(MIN_CENTS)} and ${formatCents(MAX_CENTS)}.`}
-        </p>
+        {/* Only the live read-back — no stated range, since there's no longer a
+            business minimum or maximum to advertise. */}
+        {preview && (
+          <p className="muted" style={{ fontSize: '13px', marginTop: '6px' }}>
+            That&rsquo;s {preview}.
+          </p>
+        )}
       </div>
 
       <div>
