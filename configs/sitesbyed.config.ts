@@ -90,6 +90,7 @@ export const sitesByEdConfig: ClientConfig = {
   },
   footer: {
     copyrightName: 'Sites by Ed',
+    payLinkLabel: 'Client payments',
   },
   seo: {
     title: 'Sites by Ed — Handbuilt Websites for Small Businesses & Youth Sports Organizations',

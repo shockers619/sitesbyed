@@ -132,6 +132,10 @@ export interface ContactContent {
 export interface FooterContent {
   socialLinks?: { platform: 'facebook' | 'instagram' | 'google'; url: string }[]
   copyrightName: string
+  /** Shows a link to /pay in the footer, using this as the label. Omit to keep
+   *  the payment page unlisted — which is the default, since a publicly linked
+   *  open-amount form is a bigger target than one shared privately. */
+  payLinkLabel?: string
 }
 
 /**
