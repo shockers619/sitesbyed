@@ -4,17 +4,17 @@
 // Shared by the /pay form and the API route so the two can't drift. The form
 // uses these for immediate feedback; the API route enforces them for real.
 //
-// NOTE: these are now Stripe's own hard limits, not business rules. Ed removed
-// the $50 floor deliberately so small amounts can be taken. That floor was a
-// fraud control — a public form accepting any amount invites card testing,
-// where stolen numbers are run at small values to find the live ones. Stripe
-// Radar is now the only thing standing in the way of that. Worth reinstating a
-// business minimum once testing is done.
+// The floor is a fraud control first and a billing rule second. The page is
+// linked from the footer, so it's publicly discoverable — and a discoverable
+// form that accepts any amount is what card-testing scripts hunt for, running
+// stolen numbers at small values to find the live ones. A meaningful minimum
+// makes the form useless for that without relying on Radar to catch it.
 // ============================================================================
 
-/** $0.50 — Stripe rejects anything smaller, so catching it here returns a
- *  readable message instead of a raw API error. */
-export const MIN_CENTS = 50
+/** $200.00 — comfortably above card-testing territory and below any real
+ *  project invoice. Note this is above the $49-99/mo hosting tier, so a
+ *  monthly hosting payment can't be taken here. */
+export const MIN_CENTS = 20_000
 
 /** $999,999.99 — Stripe's per-transaction ceiling. Not a business limit;
  *  it just stops obviously invalid values reaching the API. */
@@ -65,7 +65,7 @@ export function amountErrorMessage(err: AmountError): string {
   switch (err) {
     case 'missing': return 'Enter an amount.'
     case 'invalid': return 'That doesn’t look like a valid amount.'
-    case 'too_low': return `The smallest payment card networks accept is ${formatCents(MIN_CENTS)}.`
+    case 'too_low': return `The minimum payment is ${formatCents(MIN_CENTS)}. Get in touch for anything smaller.`
     case 'too_high': return 'That amount is too large to process. Please get in touch directly.'
   }
 }
