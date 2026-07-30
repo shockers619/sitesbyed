@@ -173,6 +173,16 @@ section { padding: 96px 24px; }
   nav .wrap { padding: 14px 16px !important; }
   nav .signature { font-size: var(--signature-size-mobile); }
   nav .btn-primary { padding: 8px 14px !important; font-size: 12px !important; }
+  /* At 375px the logo, an outlined Portfolio button and the CTA leave about
+     2px between the signature and the first button — not overlapping, but it
+     reads as a collision. Drop the outline on phones so Portfolio is a plain
+     link again and the row breathes. */
+  nav .btn-secondary {
+    border-color: transparent !important;
+    background: transparent !important;
+    padding: 8px 4px !important;
+    font-size: 13px !important;
+  }
 }
 
 .section-alt { background: var(--bg-alt); }

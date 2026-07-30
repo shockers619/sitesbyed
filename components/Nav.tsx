@@ -27,8 +27,11 @@ export default function Nav() {
             </span>
           )}
         </a>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          <a href="/portfolio" className="tap-target" style={{ fontSize: '14px', fontWeight: 600, textDecoration: 'none', color: 'inherit' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {/* Outlined rather than plain text: the portfolio is the strongest
+              proof on the site, and as bare text beside a filled button it read
+              as an afterthought. Mirrors the hero's secondary/primary pairing. */}
+          <a href="/portfolio" className="btn btn-secondary tap-target" style={{ padding: '10px 18px', fontSize: '13px', textDecoration: 'none' }}>
             Portfolio
           </a>
           <a href={`/${hero.ctaHref}`} className="btn btn-primary tap-target" style={{ padding: '10px 20px', fontSize: '13px', textDecoration: 'none' }}>
