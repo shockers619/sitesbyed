@@ -19,9 +19,10 @@ export default function PortfolioPage() {
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 48px)', marginTop: '18px', marginBottom: '16px' }}>
             {sectionCopy?.portfolioHeading || 'What we’ve built'}
           </h1>
-          {/* pre-line so a config can break the intro onto its own lines with
-              \n rather than letting the sentence wrap mid-phrase */}
-          <p className="muted" style={{ fontSize: '17px', maxWidth: '640px', whiteSpace: 'pre-line' }}>
+          {/* Wide enough that the intro sits on one line on desktop, and left
+              to wrap naturally below that. pre-line is kept so a config can
+              still force its own breaks with \n if it wants them. */}
+          <p className="muted" style={{ fontSize: '17px', maxWidth: '760px', whiteSpace: 'pre-line' }}>
             {sectionCopy?.portfolioIntro || 'Real, live products — not mockups. Click through to see them running.'}
           </p>
         </div>

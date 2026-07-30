@@ -32,7 +32,7 @@ export const sitesByEdConfig: ClientConfig = {
     contactHeading: 'Get in touch',
     portfolioTitle: 'My Work — Sites by Ed',
     portfolioHeading: 'What I’ve built',
-    portfolioIntro: 'Real, live products — not mockups.\nClick through to see them running.',
+    portfolioIntro: 'Real, live products — not mockups. Click through to see them running.',
   },
   hero: {
     eyebrow: 'HANDBUILT WEBSITES',
