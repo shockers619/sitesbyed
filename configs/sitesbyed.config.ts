@@ -57,6 +57,7 @@ export const sitesByEdConfig: ClientConfig = {
     {
       title: 'Keeping It Running —\n$49–$99/mo',
       description: 'Hosting, uptime monitoring, and security updates after launch, so your site stays fast and online without you thinking about it. Higher tier includes monthly content edits.',
+      note: 'entirely optional',
     },
   ],
   comparison: {
