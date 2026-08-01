@@ -38,11 +38,11 @@ export default function PortfolioPage() {
           />
           <WorkSample
             name="Pancake Dig"
-            brand="pancakedig"
             url="https://pancakedig.com"
-            tagline="National grassroots volleyball directory"
-            bg="#10263B"
-            fg="#FFC42B"
+            image="/work-pancakedig.png"
+            /* --net-graphite from the Pancake Dig stylesheet, so the
+               transparent logo sits on its own brand navy */
+            bg="#0B1620"
           />
           <WorkSample
             name="The Cozy Thrift"
