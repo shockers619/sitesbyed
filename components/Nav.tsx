@@ -13,10 +13,10 @@ export default function Nav() {
       }}>
         <a href="/" className="tap-target" style={{ textDecoration: 'none', color: 'inherit' }}>
           {business.logoPrefix && business.logoSignature ? (
-            <span style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '18px' }}>
-                {business.logoPrefix}
-              </span>
+            <span style={{ display: 'flex', alignItems: 'baseline', gap: '9px' }}>
+              {/* Size lives in CSS, not inline — an inline fontSize outranks the
+                  mobile media query and silently defeats it. */}
+              <span className="logo-prefix">{business.logoPrefix}</span>
               <span className="signature">
                 {business.logoSignature}
               </span>

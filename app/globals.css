@@ -12,8 +12,13 @@
   /* Homemade Apple ships a single 400 weight and sits small on its em square,
      so it needs a larger size than a typical script face to hold its own. */
   --font-signature: 'Homemade Apple', cursive;
-  --signature-size: 30px;
-  --signature-size-mobile: 25px;
+  /* Logo scale. The lockup was noticeably underscaled for a brand mark — it
+     sat in the nav rather than leading it. Both halves move together so the
+     slab-to-script relationship stays fixed. */
+  --logo-prefix-size: 23px;
+  --logo-prefix-size-mobile: 19px;
+  --signature-size: 39px;
+  --signature-size-mobile: 31px;
   /* Homemade Apple's glyphs sit above the typographic baseline, so flex
      baseline-alignment leaves the signature floating. Nudge it back down onto
      the optical baseline of the text beside it. */
@@ -99,6 +104,12 @@ body.texture-craft,
   transform: rotate(-2deg);
   border-radius: 3px;
 }
+.logo-prefix {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--logo-prefix-size);
+}
+
 .signature {
   font-family: var(--font-signature);
   font-size: var(--signature-size);
@@ -172,6 +183,7 @@ section { padding: 96px 24px; }
   section { padding: 56px 20px; }
   nav .wrap { padding: 14px 16px !important; }
   nav .signature { font-size: var(--signature-size-mobile); }
+  nav .logo-prefix { font-size: var(--logo-prefix-size-mobile); }
   nav .btn-primary { padding: 8px 14px !important; font-size: 12px !important; }
   /* At 375px the logo, an outlined Portfolio button and the CTA leave about
      2px between the signature and the first button — not overlapping, but it
