@@ -3,27 +3,22 @@ import { isRealPhone } from '@/lib/guards'
 
 export default function Footer() {
   const { footer, business } = activeConfig
+  // Border and padding live in globals.css, not inline: an inline value
+  // outranks the narrow-screen media query and silently defeats it.
   return (
-    <footer style={{ borderTop: '1px solid var(--line)', padding: '32px 24px' }}>
-      <div className="wrap" style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        flexWrap: 'wrap', gap: '12px',
-      }}>
-        <p className="muted" style={{ fontSize: '13px' }}>
+    <footer>
+      <div className="wrap footer-row">
+        <p className="muted footer-item">
           © {new Date().getFullYear()} {footer.copyrightName}
         </p>
 
         {footer.payLinkLabel && (
-          <a
-            href="/pay"
-            className="tap-target"
-            style={{ fontSize: '13px', color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}
-          >
+          <a href="/pay" className="tap-target footer-item footer-pay">
             {footer.payLinkLabel}
           </a>
         )}
 
-        <p className="muted" style={{ fontSize: '13px' }}>
+        <p className="muted footer-item">
           {isRealPhone(business.phone) ? `${business.phone} · ${business.email}` : business.email}
         </p>
       </div>

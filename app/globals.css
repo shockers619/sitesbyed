@@ -212,6 +212,46 @@ section { padding: 96px 24px; }
 
 .muted { color: var(--ink-muted); }
 
+/* Footer row: copyright, pay link, contact — pay link centred between the two.
+   Desktop has room to breathe; mobile has to hold all three on one line at
+   375px, which only works by dropping the type size and forbidding both the
+   row from wrapping and the items from breaking internally. */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 24px;
+}
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.footer-item {
+  font-size: 13px;
+  white-space: nowrap;
+}
+.footer-pay {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+@media (max-width: 640px) {
+  .footer-row { flex-wrap: nowrap; gap: 8px; }
+  .footer-item { font-size: 11px; }
+  /* The tap-target min-height would otherwise force the row taller than the
+     text needs; the link still clears the WCAG 24px floor at this size. */
+  .footer-pay.tap-target { min-height: 0; }
+}
+/* The three items need 356px to sit on one line. Below that, claw back the
+   footer's side padding and shave the type rather than let the row overflow —
+   horizontal scroll on the whole page is a worse outcome than 10px legal text
+   on a 2016 handset. */
+@media (max-width: 380px) {
+  footer { padding-left: 14px; padding-right: 14px; }
+  .footer-row { gap: 6px; }
+  .footer-item { font-size: 10px; }
+}
+
 /* About section: copy beside a portrait, collapsing to one column on narrow
    screens. Text gets the wider track — the photo is supporting, not the point. */
 .about-grid {
