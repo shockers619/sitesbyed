@@ -39,7 +39,7 @@ export default function PortfolioPage() {
           <WorkSample
             name="Pancake Dig"
             url="https://pancakedig.com"
-            image="/work-pancakedig.png"
+            image="/work-pancakedig.jpg"
             /* --net-graphite from the Pancake Dig stylesheet, so the
                transparent logo sits on its own brand navy */
             bg="#0B1620"
