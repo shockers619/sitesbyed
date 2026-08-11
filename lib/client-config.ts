@@ -122,6 +122,10 @@ export interface ComparisonContent {
    *  straight two-way DIY-vs-us comparison. */
   agencyLabel?: string
   usLabel?: string       // defaults to your business name if omitted
+  /** Short forms used on narrow screens, where the grid collapses and each
+   *  value has to name its own column inline. Falls back to the full labels,
+   *  which are usually too long to sit beside a value on a phone. */
+  shortLabels?: { diy?: string; agency?: string; us?: string }
 }
 
 export interface FoundationItem {

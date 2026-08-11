@@ -65,6 +65,7 @@ export const sitesByEdConfig: ClientConfig = {
     diyLabel: 'A Wix or GoDaddy builder',
     agencyLabel: 'A web design agency',
     usLabel: 'Sites by Ed',
+    shortLabels: { diy: 'Wix / GoDaddy', agency: 'An agency', us: 'Sites by Ed' },
     rows: [
       {
         label: 'What it costs',

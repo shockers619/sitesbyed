@@ -198,6 +198,104 @@ section { padding: 96px 24px; }
 
 .section-alt { background: var(--bg-alt); }
 
+/* ---- Comparison grid -----------------------------------------------------
+   One row per attribute so values line up against their counterparts, instead
+   of one card per option where the same attribute floated to a different
+   height in every column. `.cmp-row` is display:contents on desktop so its
+   cells join the parent grid directly; below the breakpoint the whole thing
+   collapses to blocks and each cell names its own column. ---------------- */
+.cmp { display: grid; }
+.cmp-2 { grid-template-columns: minmax(120px, 0.72fr) repeat(2, minmax(0, 1fr)); }
+.cmp-3 { grid-template-columns: minmax(120px, 0.72fr) repeat(3, minmax(0, 1fr)); }
+.cmp-row { display: contents; }
+
+.cmp-head {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink-muted);
+  padding: 12px 16px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.cmp-head-corner { padding: 0; }
+
+.cmp-label {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 16px 18px 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.cmp-cell {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* The winning column carries a tint the full height of the table. Mixed from
+   --accent rather than hardcoded, so a client with a different palette gets
+   its own tint without touching this file. */
+.cmp-head.cmp-us,
+.cmp-cell.cmp-us {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+.cmp-head.cmp-us {
+  color: var(--accent);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+.cmp-cell.cmp-us { color: var(--ink); }
+
+.cmp-row-last .cmp-label,
+.cmp-row-last .cmp-cell { border-bottom: none; }
+.cmp-row-last .cmp-cell.cmp-us {
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+/* The inline column name only exists for the stacked layout. */
+.cmp-who { display: none; }
+
+/* Three columns of prose need roughly 300px each before they start breaking
+   mid-phrase; below that the grid becomes a stack of labelled groups. */
+@media (max-width: 880px) {
+  .cmp-2, .cmp-3 { display: block; grid-template-columns: none; }
+  .cmp-head { display: none; }
+  .cmp-row {
+    display: block;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .cmp-row-last { border-bottom: none; }
+  .cmp-label {
+    font-family: var(--font-display);
+    font-size: 17px;
+    padding: 0 0 12px;
+    border-bottom: none;
+  }
+  .cmp-cell {
+    padding: 7px 0;
+    border-bottom: none;
+    background: none;
+  }
+  .cmp-cell.cmp-us {
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    margin-top: 4px;
+  }
+  .cmp-who {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2px;
+  }
+  .cmp-cell.cmp-us .cmp-who { color: var(--accent); }
+}
+
 .wrap {
   max-width: 1140px;
   margin: 0 auto;
