@@ -198,6 +198,28 @@ section { padding: 96px 24px; }
 
 .section-alt { background: var(--bg-alt); }
 
+/* Hero CTAs. They wrapped to two stacked rows on a phone, which pushed the
+   fold down for no gain — the nav already carries both. Below 480px the row is
+   held to one line and the buttons shrink to fit rather than stacking. */
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .hero-cta { flex-wrap: nowrap; gap: 10px; }
+  .hero-cta .btn {
+    padding: 13px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  /* .btn-secondary carries a 1px border the primary doesn't, so it needs 1px
+     less padding to end up the same height — the same compensation the
+     full-size rules above already make. */
+  .hero-cta .btn-secondary { padding: 12px 15px; }
+}
+
 /* ---- Comparison grid -----------------------------------------------------
    One row per attribute so values line up against their counterparts, instead
    of one card per option where the same attribute floated to a different
@@ -279,10 +301,14 @@ section { padding: 96px 24px; }
     border-bottom: none;
     background: none;
   }
+  /* The tint needs padding to breathe, but padding alone indents this row's
+     text past the two above it. Negative margins of the same size pull the
+     background back out to the edges so the text stays flush left with the
+     other values while the tinted block still has its inset. */
   .cmp-cell.cmp-us {
     padding: 10px 14px;
+    margin: 4px -14px 0;
     border-radius: var(--radius);
-    margin-top: 4px;
   }
   .cmp-who {
     display: block;

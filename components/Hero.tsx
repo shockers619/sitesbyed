@@ -12,7 +12,9 @@ export default function Hero() {
         <p className="muted" style={{ fontSize: '19px', lineHeight: 1.55, marginBottom: '36px', maxWidth: '540px' }}>
           {hero.subhead}
         </p>
-        <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+        {/* Layout lives in .hero-cta rather than inline, so the phone rule that
+            keeps both buttons on one row isn't outranked by a style attribute. */}
+        <div className="hero-cta">
           <a href={hero.ctaHref} className="btn btn-primary" style={{ textDecoration: 'none' }}>{hero.ctaLabel}</a>
           {hero.secondaryCtaLabel && (
             <a href={hero.secondaryCtaHref} className="btn btn-secondary" style={{ textDecoration: 'none' }}>
