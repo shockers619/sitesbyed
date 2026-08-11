@@ -4,6 +4,7 @@ import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import Comparison from '@/components/Comparison'
+import Foundations from '@/components/Foundations'
 import About from '@/components/About'
 import Gallery from '@/components/Gallery'
 import Testimonials from '@/components/Testimonials'
@@ -14,6 +15,7 @@ const SECTION_COMPONENTS: Record<SectionKey, React.ComponentType> = {
   hero: Hero,
   services: Services,
   comparison: Comparison,
+  foundations: Foundations,
   about: About,
   gallery: Gallery,
   testimonials: Testimonials,

@@ -59,15 +59,14 @@ body.texture-craft,
     repeating-linear-gradient(90deg, rgba(42,38,32,0.018) 0 1px, transparent 1px 5px);
 }
 
-/* Cards sit like pinned paper — a fraction of a degree off square. Alternating
-   direction stops it reading as a systematic skew. Kept under 0.4deg: enough
-   to feel placed by hand, not enough to look broken. */
-.texture-craft .card {
-  transition: transform 0.18s ease;
-}
-.texture-craft .card-tilt:nth-child(odd) { transform: rotate(-0.9deg); }
-.texture-craft .card-tilt:nth-child(even) { transform: rotate(0.75deg); }
-.texture-craft .card-tilt:hover { transform: rotate(0deg); }
+/* The service cards used to sit a fraction of a degree off square and
+   straighten on hover. Removed deliberately: the cards carry prices, and a
+   crooked price reads as unsteady rather than handmade — and the
+   straighten-on-hover only existed on desktop, so on a phone they were just
+   permanently crooked with no payoff. The craft language now lives in the
+   things that are genuinely marginal: the hand-drawn underlines, the
+   handwritten notes, and the pinned photo in the About section. Don't
+   reintroduce a tilt on anything holding a number. */
 
 /* Margin note in the signature hand, as if scribbled beside the text. */
 .texture-craft .margin-note {

@@ -17,6 +17,7 @@ export type SectionKey =
   | 'hero'
   | 'services'
   | 'comparison'
+  | 'foundations'
   | 'about'
   | 'gallery'
   | 'testimonials'
@@ -106,14 +107,40 @@ export interface AboutContent {
 export interface ComparisonRow {
   label: string
   diy: string        // what's true of Wix/GoDaddy/Squarespace on this point
+  /** What's true of a traditional agency on this point. Optional — the agency
+   *  column only renders when `agencyLabel` is set, so a two-column comparison
+   *  keeps working untouched. */
+  agency?: string
   us: string          // what's true of this build on the same point
 }
 
 export interface ComparisonContent {
   headline: string
   rows: ComparisonRow[]
-  diyLabel?: string    // defaults to "DIY Builder" if omitted
-  usLabel?: string     // defaults to your business name if omitted
+  diyLabel?: string      // defaults to "DIY Builder" if omitted
+  /** Set to add a third, middle column for the agency option. Omit for a
+   *  straight two-way DIY-vs-us comparison. */
+  agencyLabel?: string
+  usLabel?: string       // defaults to your business name if omitted
+}
+
+export interface FoundationItem {
+  title: string
+  body: string
+  /** Optional margin note in the signature hand. Craft texture only. */
+  note?: string
+}
+
+/**
+ * The things that come with every build rather than being sold separately —
+ * the answer to "what am I actually getting beyond pages?". Kept apart from
+ * `services` because those are priced tiers you choose between, and these
+ * apply to all of them.
+ */
+export interface FoundationsContent {
+  headline: string
+  intro?: string
+  items: FoundationItem[]
 }
 
 export interface Testimonial {
@@ -166,6 +193,7 @@ export interface ClientConfig {
   hero: HeroContent
   services: ServiceItem[]
   comparison?: ComparisonContent
+  foundations?: FoundationsContent
   about: AboutContent
   gallery?: string[]             // image URLs; omit the section from sectionOrder if unused
   testimonials?: Testimonial[]

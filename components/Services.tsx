@@ -15,7 +15,7 @@ export default function Services() {
         {intro && <p className="muted" style={{ marginBottom: '44px' }}>{intro}</p>}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '28px' }}>
           {services.map((s, i) => (
-            <div key={i} className="card stitched card-tilt">
+            <div key={i} className="card stitched">
               <h3 style={{ fontSize: '20px', marginBottom: '14px', whiteSpace: 'pre-line' }}>{s.title}</h3>
               <p className="muted" style={{ fontSize: '15px', lineHeight: 1.6 }}>{s.description}</p>
               {s.note && <p className="margin-note" style={{ marginTop: '16px' }}>{s.note}</p>}
