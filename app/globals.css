@@ -401,36 +401,8 @@ footer {
   border-radius: var(--radius);
   border: 1px solid var(--line);
 }
-/* Pinned slightly off-square, like a print tacked to the page. The tilt lives
-   on the frame rather than the image so the paperclip rides along with it. */
-.about-photo-frame { position: relative; }
-.texture-craft .about-photo-frame { transform: rotate(1.1deg); }
-
-/* Paperclip over the top edge: the loop rises above the print onto the page,
-   the body lies across the image. That overlap is the whole illusion — inset
-   it entirely within the photo and it just reads as a drawing of a clip. */
-.about-clip {
-  position: absolute;
-  top: -28px;
-  left: 9%;
-  /* Sized against the print, not in absolute pixels — a clip that reads right
-     on a 410px photo looks like a staple on a 300px one. */
-  width: 11%;
-  min-width: 34px;
-  max-width: 56px;
-  aspect-ratio: 36 / 100;
-  height: auto;
-  /* --ink at half strength rather than --ink-muted: the clip crosses the sky
-     in the photo, and the muted tone disappeared against it. */
-  /* Opacity is set per stroke pass in the markup, not here — a blanket opacity
-     would fade the halo along with the line it exists to separate. */
-  color: var(--ink);
-  transform: rotate(-8deg);
-  /* Just enough shadow to sit above the paper. Any more and it stops looking
-     drawn and starts looking like clip art of a paperclip. */
-  filter: drop-shadow(1px 2px 1.5px rgba(0, 0, 0, 0.22));
-  pointer-events: none;
-}
+/* Pinned slightly off-square, like a print tacked to the page. */
+.texture-craft .about-photo { transform: rotate(1.1deg); }
 
 /* Handwritten aside under the photo, following the print's own tilt so the
    two read as one pinned object rather than a caption bolted underneath. */
