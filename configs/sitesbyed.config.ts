@@ -144,10 +144,8 @@ export const sitesByEdConfig: ClientConfig = {
     image: '/about-ed.jpg',
     imageCaption: 'actually me',
     signoff: 'Ed',
-    stats: [
-      { value: '4', label: 'Live products built & shipped' },
-      { value: '<1s', label: 'Typical page load time' },
-    ],
+    // No stats block. "4 live products" is a number that reads as small, and
+    // the portfolio makes the same point better by showing them.
   },
   contact: {
     formEnabled: true,
