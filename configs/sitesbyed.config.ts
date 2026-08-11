@@ -77,7 +77,7 @@ export const sitesByEdConfig: ClientConfig = {
         label: 'Who builds it',
         diy: 'You, alone, at 11pm',
         agency: 'A pitch team, then whoever they assign',
-        us: 'A person, start to finish',
+        us: 'One person (Ed), start to finish',
       },
       {
         label: 'The code',
