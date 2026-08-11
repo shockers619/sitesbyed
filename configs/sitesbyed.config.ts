@@ -51,7 +51,10 @@ export const sitesByEdConfig: ClientConfig = {
     },
     {
       title: 'The Full Build — $3,000',
-      description: 'A bigger site — up to 8 subpages — with real booking or payment built into it. Not a Calendly widget embedded on a page or a Stripe link bolted on, but scheduling and checkout designed as part of the site, so a customer goes from landing on it to booked or paid without ever leaving.',
+      // 6, not 8: the Starter is $1,500 for 3 subpages, so 6 here holds the
+      // same $500/page rate rather than quietly discounting the bigger job.
+      // The real value of this tier is the booking/checkout build, not volume.
+      description: 'A bigger site — up to 6 subpages — with real booking or payment built into it. Not a Calendly widget embedded on a page or a Stripe link bolted on, but scheduling and checkout designed as part of the site, so a customer goes from landing on it to booked or paid without ever leaving.',
       note: 'best if you take bookings and/or online payments',
     },
     {
