@@ -226,9 +226,13 @@ section { padding: 96px 24px; }
    height in every column. `.cmp-row` is display:contents on desktop so its
    cells join the parent grid directly; below the breakpoint the whole thing
    collapses to blocks and each cell names its own column. ---------------- */
+.cmp-wrap { max-width: 1280px; }
 .cmp { display: grid; }
-.cmp-2 { grid-template-columns: minmax(120px, 0.72fr) repeat(2, minmax(0, 1fr)); }
-.cmp-3 { grid-template-columns: minmax(120px, 0.72fr) repeat(3, minmax(0, 1fr)); }
+/* The label column is deliberately narrow — its text is short, and every pixel
+   it gives up goes to the value columns, which is what decides whether a value
+   fits on one line. */
+.cmp-2 { grid-template-columns: minmax(110px, 0.58fr) repeat(2, minmax(0, 1fr)); }
+.cmp-3 { grid-template-columns: minmax(110px, 0.58fr) repeat(3, minmax(0, 1fr)); }
 .cmp-row { display: contents; }
 
 .cmp-head {
@@ -236,7 +240,7 @@ section { padding: 96px 24px; }
   font-weight: 700;
   font-size: 15px;
   color: var(--ink-muted);
-  padding: 12px 16px 14px;
+  padding: 12px 12px 14px;
   border-bottom: 1px solid var(--line);
 }
 .cmp-head-corner { padding: 0; }
@@ -244,14 +248,14 @@ section { padding: 96px 24px; }
 .cmp-label {
   font-weight: 600;
   font-size: 14px;
-  padding: 16px 18px 16px 0;
+  padding: 15px 14px 15px 0;
   border-bottom: 1px solid var(--line);
 }
 .cmp-cell {
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.55;
   color: var(--ink-muted);
-  padding: 16px;
+  padding: 15px 12px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -279,9 +283,13 @@ section { padding: 96px 24px; }
 /* The inline column name only exists for the stacked layout. */
 .cmp-who { display: none; }
 
-/* Three columns of prose need roughly 300px each before they start breaking
-   mid-phrase; below that the grid becomes a stack of labelled groups. */
-@media (max-width: 880px) {
+/* Every value is written to fit one line, and three columns of prose need
+   roughly 330px each to hold that. Below the width where the grid can give
+   them that much, it becomes a stack of labelled groups — which is also one
+   line per value. So the section reads the same way at any size: never a
+   half-wrapped table. Raising this from 880px means small laptop windows and
+   landscape tablets get the stacked version rather than a cramped grid. */
+@media (max-width: 1200px) {
   .cmp-2, .cmp-3 { display: block; grid-template-columns: none; }
   .cmp-head { display: none; }
   .cmp-row {

@@ -47,7 +47,9 @@ export default function Comparison() {
 
   return (
     <section>
-      <div className="wrap">
+      {/* Wider than the standard wrap: three columns of prose plus a label
+          column need more than 1140px to keep every value on one line. */}
+      <div className="wrap cmp-wrap">
         <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '40px' }}>
           <HandUnderline>{comparison.headline}</HandUnderline>
         </h2>

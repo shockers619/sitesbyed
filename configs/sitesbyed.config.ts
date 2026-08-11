@@ -63,20 +63,20 @@ export const sitesByEdConfig: ClientConfig = {
   comparison: {
     headline: 'What you\u2019re actually choosing between',
     diyLabel: 'A Wix or GoDaddy builder',
-    agencyLabel: 'A web design agency',
+    agencyLabel: 'A Web Design Agency',
     usLabel: 'Sites by Ed',
     shortLabels: { diy: 'Wix / GoDaddy', agency: 'An agency', us: 'Sites by Ed' },
     rows: [
       {
         label: 'What it costs',
-        diy: '$200–$500 a year, forever, plus your weekends',
+        diy: '$200–$500 a year, plus your weekends',
         agency: '$20,000–$25,000, then a monthly retainer',
         us: '$1,500–$3,000 once — the whole invoice',
       },
       {
         label: 'Who builds it',
         diy: 'You, alone, at 11pm',
-        agency: 'A team you meet once, then whoever they assign',
+        agency: 'A pitch team, then whoever they assign',
         us: 'A person, start to finish',
       },
       {
