@@ -291,6 +291,30 @@ section { padding: 96px 24px; }
   margin-top: 44px;
   max-width: 620px;
 }
+
+/* Hand-drawn box, craft clients only.
+   Lopsided border-radius rather than an SVG outline: an SVG rectangle has to
+   be stretched to fit a box whose size depends on its text, and non-uniform
+   scaling wrecks the corners. Asymmetric horizontal/vertical radii bend each
+   side by a different amount, which is what reads as drawn by hand — and it
+   holds its shape at any width, so it survives the mobile reflow. The ::before
+   is a second pass at a different radius and a slight offset: a real pen
+   outline doubles back and never lands on its own line. */
+.texture-craft .cmp-postscript {
+  position: relative;
+  border: 2px solid var(--accent);
+  border-radius: 255px 14px 225px 16px / 16px 225px 14px 255px;
+  padding: 26px 30px 28px;
+}
+.texture-craft .cmp-postscript::before {
+  content: '';
+  position: absolute;
+  inset: -5px -3px 2px 4px;
+  border: 2px solid var(--accent);
+  border-radius: 225px 16px 255px 14px / 14px 255px 16px 225px;
+  opacity: 0.34;
+  pointer-events: none;
+}
 .cmp-postscript h3 {
   font-size: 18px;
   margin-bottom: 8px;
@@ -436,6 +460,17 @@ footer {
 /* Signed off in the same hand as the logo, closing the section like a note.
    aria-hidden in the markup — it's a visual flourish, and a screen reader
    announcing a stray "Ed" between prose and statistics is just noise. */
+/* Sized in em so it tracks the signature at both breakpoints. The vertical
+   nudge puts it around the middle of the script's x-height rather than on the
+   baseline, which is where a dash sits when someone actually writes one. */
+.signoff-dash {
+  display: inline-block;
+  width: 0.72em;
+  height: 0.2em;
+  margin-right: 0.16em;
+  vertical-align: 0.28em;
+}
+
 .about-signoff {
   font-family: var(--font-signature);
   font-size: 54px;
