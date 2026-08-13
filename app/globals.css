@@ -481,8 +481,11 @@ footer {
   margin-right: 8px;
   transform: rotate(-2deg);
 }
+/* Stays right-aligned on phones, only smaller. Flushing it left put it on the
+   same margin as every body paragraph, where it read as one more line of copy
+   rather than a signature closing the note. */
 @media (max-width: 760px) {
-  .about-signoff { font-size: 44px; text-align: left; margin-right: 0; }
+  .about-signoff { font-size: 44px; margin-right: 6px; }
 }
 
 /* Touch targets. WCAG 2.5.8 sets a 24x24 CSS-px floor and Apple's HIG
