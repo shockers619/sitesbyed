@@ -98,7 +98,14 @@ export const sitesByEdConfig: ClientConfig = {
         label: 'Looks like',
         diy: 'A Wix site — because it is one',
         agency: 'Polished, like their last six clients',
-        us: 'A site someone actually built for you',
+        // The column gives a value 294px. "Designed from a blank page — no
+        // template, no house style" measures 344, so it had to lose the verb.
+        // Both halves of the tail earn their place: "no template" answers the
+        // Wix cell, "no house style" answers the agency's "like their last six
+        // clients". Measured at 278px — the variants that kept more of the
+        // original wording came in at 290-292, which is inside the budget but
+        // too close to it to survive a font fallback.
+        us: 'Blank page. No template, no house style',
       },
       {
         label: 'When something breaks',
@@ -119,6 +126,14 @@ export const sitesByEdConfig: ClientConfig = {
         us: 'Optional hosting, or nothing at all',
       },
     ],
+    // Benefit first, credential second — the buyer is a landscaper or a club
+    // director who has never heard of Next.js. Company names are the three I
+    // could confirm on the official Next.js showcase; Netflix appears there
+    // only as its jobs site, and Notion isn't listed at all.
+    postscript: {
+      heading: 'Built on modern tools',
+      body: 'Your site is built with Next.js — the same framework behind Nike, OpenAI, and Spotify. There’s no template underneath it, so your site doesn’t look like anyone else’s. It loads fast, it’s built to be found on Google, and you own the code.',
+    },
   },
   foundations: {
     headline: 'Getting found is part of the build',

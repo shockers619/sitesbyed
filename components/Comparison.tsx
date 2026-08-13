@@ -85,6 +85,13 @@ export default function Comparison() {
             )
           })}
         </div>
+
+        {comparison.postscript && (
+          <div className="cmp-postscript">
+            <h3>{comparison.postscript.heading}</h3>
+            <p className="muted">{comparison.postscript.body}</p>
+          </div>
+        )}
       </div>
     </section>
   )

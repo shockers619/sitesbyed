@@ -283,6 +283,23 @@ section { padding: 96px 24px; }
 /* The inline column name only exists for the stacked layout. */
 .cmp-who { display: none; }
 
+/* Closing note under the table. Sized at body scale on purpose — the point of
+   the tech credential is that it reassures without becoming the pitch, so it
+   must not compete with the section headings above it. No border or panel:
+   a boxed badge would read as bolted on rather than as part of the page. */
+.cmp-postscript {
+  margin-top: 44px;
+  max-width: 620px;
+}
+.cmp-postscript h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.cmp-postscript p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+
 /* Every value is written to fit one line, and three columns of prose need
    roughly 330px each to hold that. Below the width where the grid can give
    them that much, it becomes a stack of labelled groups — which is also one

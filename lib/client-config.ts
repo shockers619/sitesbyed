@@ -126,6 +126,11 @@ export interface ComparisonContent {
    *  value has to name its own column inline. Falls back to the full labels,
    *  which are usually too long to sit beside a value on a phone. */
   shortLabels?: { diy?: string; agency?: string; us?: string }
+  /** A small block under the table — the place for a credential that supports
+   *  the comparison without competing with it. Deliberately not a section of
+   *  its own: it renders at body scale, so it reads as a closing note rather
+   *  than a badge. */
+  postscript?: { heading: string; body: string }
 }
 
 export interface FoundationItem {
